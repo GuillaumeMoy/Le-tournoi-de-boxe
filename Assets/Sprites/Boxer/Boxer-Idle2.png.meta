@@ -116,12 +116,12 @@ TextureImporter:
       name: Boxer-Idle2_0
       rect:
         serializedVersion: 2
-        x: 367
-        y: 299
+        x: 487
+        y: 310
         width: 417
         height: 295
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e77d061f0b27f417ab0a58e114971d6f
     internalID: 0
     vertices: []
     indices: 
