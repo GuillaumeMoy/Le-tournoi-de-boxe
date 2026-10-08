@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3d57bae217f8a4527b4ae61b06f9c762
+guid: 9e92fd9c9357a4c0d97c38bd9e0e91a5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1614575556897524963
-    second: Boxer-Punch2_0
+      213: 42256238101219687
+    second: character-idle-6_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boxer-Punch2_0
+      name: character-idle-6_0
       rect:
         serializedVersion: 2
-        x: 517
-        y: 263
-        width: 235
-        height: 306
+        x: 19
+        y: 17
+        width: 21
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3ecc7e32aef186610800000000000000
-      internalID: 1614575556897524963
+      spriteID: 769419d13df169000800000000000000
+      internalID: 42256238101219687
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Boxer-Punch2_0: 1614575556897524963
+      character-idle-6_0: 42256238101219687
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

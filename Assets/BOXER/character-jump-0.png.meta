@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3fa17c866d4f7456390d4a74bd40f760
+guid: 2c54aa1586e19485a86ce65de20b7f03
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7869779400325849332
-    second: Boxer-Punch3_0
+      213: 2733142150433829028
+    second: character-jump-0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boxer-Punch3_0
+      name: character-jump-0_0
       rect:
         serializedVersion: 2
-        x: 547
-        y: 235
-        width: 230
-        height: 306
+        x: 22
+        y: 16
+        width: 21
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c0f14eec45de8c290800000000000000
-      internalID: -7869779400325849332
+      spriteID: 4a071451e421ee520800000000000000
+      internalID: 2733142150433829028
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Boxer-Punch3_0: -7869779400325849332
+      character-jump-0_0: 2733142150433829028
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 375af2142d78b45a983a4ec25208022b
+guid: 35471ee19ad0845f88be7b218b2c64a9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -868392026214376250
-    second: Boxer-Idle2_0
+      213: -3130809446014287214
+    second: character-idle-5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boxer-Idle2_0
+      name: character-idle-5_0
       rect:
         serializedVersion: 2
-        x: 487
-        y: 310
-        width: 417
-        height: 295
+        x: 19
+        y: 17
+        width: 21
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ccd5b79d0ad2f3f0800000000000000
-      internalID: -868392026214376250
+      spriteID: 29281e685612d84d0800000000000000
+      internalID: -3130809446014287214
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e77d061f0b27f417ab0a58e114971d6f
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Boxer-Idle2_0: -868392026214376250
+      character-idle-5_0: -3130809446014287214
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
