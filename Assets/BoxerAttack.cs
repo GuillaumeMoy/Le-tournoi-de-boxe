@@ -6,7 +6,7 @@ public class BoxerAttack : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>()
+        animator = GetComponent<Animator>();
     }
 
     void Update()
