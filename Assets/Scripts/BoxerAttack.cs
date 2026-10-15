@@ -5,9 +5,14 @@ public class BoxerAttack : MonoBehaviour
     private Animator animator;
     private bool isPunching = false;
 
+    public Collider2D punchHitbox;
+
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        if (punchHitbox != null)
+            punchHitbox.enabled = false;
     }
 
     void Update()
@@ -19,9 +24,21 @@ public class BoxerAttack : MonoBehaviour
         }
     }
 
-    // Call this when the punch animation finishes
+    public void EnablePunchHitbox()
+    {
+        if (punchHitbox != null)
+            punchHitbox.enabled = true;
+    }
+
+    public void DisablePunchHitbox()
+    {
+        if (punchHitbox != null)
+            punchHitbox.enabled = false;
+    }
+
     public void PunchFinished()
     {
         isPunching = false;
     }
 }
+
