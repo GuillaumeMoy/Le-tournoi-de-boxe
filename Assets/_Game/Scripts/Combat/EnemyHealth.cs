@@ -6,6 +6,8 @@ public class EnemyHealth : MonoBehaviour
 {
     public int health = 100;
     public TMP_Text healthText;
+    public HealthBarUI healthBar;
+    private int maxHealth;
 
     public SpriteRenderer spriteRenderer;
     public Color hitColor = new Color(1f, 0.5f, 0.5f);
@@ -16,6 +18,8 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
+        maxHealth = health;
+
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -25,8 +29,14 @@ public class EnemyHealth : MonoBehaviour
         UpdateHealthText();
     }
 
+    // RoundManager listens to this to open the shop
+    public System.Action Died;
+
     public void TakeDamage(int damage)
     {
+        if (health <= 0)
+            return;
+
         health -= damage;
         health = Mathf.Max(health, 0);
 
@@ -34,7 +44,23 @@ public class EnemyHealth : MonoBehaviour
         FlashRed();
 
         if (health <= 0)
-            Destroy(gameObject);
+        {
+            // Hide instead of Destroy so it can come back next round
+            gameObject.SetActive(false);
+            Died?.Invoke();
+        }
+    }
+
+    // Brings the enemy back with full health for the next round
+    public void ResetHealth()
+    {
+        health = maxHealth;
+        flashCoroutine = null;
+        if (spriteRenderer != null)
+            spriteRenderer.color = originalColor; // flash may have been cut off when it died
+
+        gameObject.SetActive(true);
+        UpdateHealthText();
     }
 
     void FlashRed()
@@ -61,5 +87,8 @@ public class EnemyHealth : MonoBehaviour
     {
         if (healthText != null)
             healthText.text = "Health: " + health;
+
+        if (healthBar != null)
+            healthBar.SetHealth(health, maxHealth);
     }
 }
