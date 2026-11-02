@@ -22,6 +22,12 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Player knocked out!");
     }
 
+    public void ResetHealth()
+    {
+        health = maxHealth;
+        UpdateBar();
+    }
+
     void UpdateBar()
     {
         if (healthBar != null)

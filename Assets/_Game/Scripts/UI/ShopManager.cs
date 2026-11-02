@@ -45,6 +45,13 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    // Reward for winning a round
+    public void AddGold(int amount)
+    {
+        currentGold += amount;
+        UpdateGoldText();
+    }
+
     public void BuyItem(string itemID)
     {
         // Prevent invalid item IDs
@@ -143,15 +150,11 @@ public class ShopManager : MonoBehaviour
         // Owned items cannot be purchased again
         button.interactable = !alreadyOwned;
 
-        if (alreadyOwned)
+        // Label comes from the real price so it can't get out of sync
+        TMP_Text buttonLabel = button.GetComponentInChildren<TMP_Text>();
+        if (buttonLabel != null)
         {
-            TMP_Text buttonLabel =
-                button.GetComponentInChildren<TMP_Text>();
-
-            if (buttonLabel != null)
-            {
-                buttonLabel.text = "OWNED";
-            }
+            buttonLabel.text = alreadyOwned ? "OWNED" : "Buy ($" + GetItemPrice(itemID) + ")";
         }
     }
 

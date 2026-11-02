@@ -16,6 +16,11 @@ public class RoundManager : MonoBehaviour
     public Behaviour[] playerControls;  // turned off during the countdown (movement, punching)
     public TMP_Text countdownText;
 
+    [Header("Rewards")]
+    public ShopManager shop;
+    public int goldPerWin = 50;
+    public PlayerHealth playerHealth;
+
     private Vector3 playerStartPosition;
     private Coroutine countdown;
 
@@ -35,10 +40,16 @@ public class RoundManager : MonoBehaviour
 
         if (shopScreen != null)
             shopScreen.SetActive(false);
+
+        // First round gets a countdown too
+        countdown = StartCoroutine(Countdown());
     }
 
     void OnEnemyDied()
     {
+        SetPlayerControls(false); // no walking/punching while shopping
+        if (shop != null)
+            shop.AddGold(goldPerWin);
         SetFightUI(false);
         if (shopScreen != null)
             shopScreen.SetActive(true);
@@ -71,6 +82,9 @@ public class RoundManager : MonoBehaviour
 
         if (enemy != null)
             enemy.ResetHealth();
+
+        if (playerHealth != null)
+            playerHealth.ResetHealth();
 
         ResetPlayer();
         countdown = StartCoroutine(Countdown());

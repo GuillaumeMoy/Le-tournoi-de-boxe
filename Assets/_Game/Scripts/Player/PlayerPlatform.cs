@@ -25,6 +25,7 @@ public class PlayerPlatform : MonoBehaviour
     [Header("Visuals")]
     public SpriteRenderer spriteRenderer;
     public Animator animator;
+    public Animator boxerAnimator; // the BOXER child: Idle/Walk/Attack
 
     // Private variables
     private Rigidbody2D rb;
@@ -37,6 +38,8 @@ public class PlayerPlatform : MonoBehaviour
     private static readonly int IsRunning = Animator.StringToHash("isRunning");
     private static readonly int IsGrounded = Animator.StringToHash("isGrounded");
     private static readonly int VerticalVelocity = Animator.StringToHash("verticalVelocity");
+    private static readonly int Speed = Animator.StringToHash("Speed");
+    private static readonly int IsJumpingParam = Animator.StringToHash("isJumping");
 
     void Start()
     {
@@ -180,6 +183,23 @@ public class PlayerPlatform : MonoBehaviour
             animator.SetBool(IsGrounded, isGrounded);
             animator.SetFloat(VerticalVelocity, rb.linearVelocity.y);
         }
+
+        if (boxerAnimator != null)
+        {
+            // Walk while there's move input (not velocity, so sliding to a stop doesn't keep walking)
+            boxerAnimator.SetFloat(Speed, Mathf.Abs(horizontalInput));
+            boxerAnimator.SetBool(IsJumpingParam, !isGrounded);
+        }
+    }
+
+    // Stops movement and the walk animation (used when controls get turned off)
+    void OnDisable()
+    {
+        horizontalInput = 0f;
+        if (rb != null)
+            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y); // don't keep sliding
+        if (boxerAnimator != null)
+            boxerAnimator.SetFloat(Speed, 0f);
     }
 
     // Visualize ground check in editor
