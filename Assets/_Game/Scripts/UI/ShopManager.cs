@@ -94,6 +94,12 @@ public class ShopManager : MonoBehaviour
         currentGold -= price;
         purchasedItems.Add(itemID);
 
+        // Give the player the item's power (stronger punch, helmet, etc.)
+        if (PlayerPowerups.Instance != null)
+        {
+            PlayerPowerups.Instance.Give(itemID);
+        }
+
         // Update the shop
         UpdateGoldText();
         UpdatePurchaseButtons();
