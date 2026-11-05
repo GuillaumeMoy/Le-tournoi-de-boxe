@@ -771,6 +771,7 @@ GameObject:
   - component: {fileID: 511422891}
   - component: {fileID: 511422895}
   - component: {fileID: 511422896}
+  - component: {fileID: 511422897}
   m_Layer: 0
   m_Name: Punching Bag
   m_TagString: Enemy
@@ -935,6 +936,26 @@ MonoBehaviour:
   windUpTime: 0.4
   spriteRenderer: {fileID: 0}
   windUpColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+--- !u!114 &511422897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511422890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035d5401777b9468cabca71a419efb2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+  player: {fileID: 0}
+  approachSpeed: 3
+  retreatSpeed: 4
+  fightDistance: 2
+  minDistance: 1.6
+  retreatTime: 1
+  moveLeft: 6
+  moveRight: 1
 --- !u!1 &656459752
 GameObject:
   m_ObjectHideFlags: 0
