@@ -21,6 +21,11 @@ public class EnemyAttack : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Color windUpColor = Color.yellow;
 
+    // The movement script reads these so the enemy stands still while punching
+    // and backs off right after a punch.
+    public bool IsWindingUp => windingUp;
+    public System.Action Punched;
+
     private float timer;
     private bool windingUp;
     private Color originalColor = Color.white;
@@ -93,6 +98,8 @@ public class EnemyAttack : MonoBehaviour
 
         timer = timeBetweenPunches;
         windingUp = false;
+
+        Punched?.Invoke();   // tells the movement script "punch done, back off"
     }
 
     bool PlayerInRange()
