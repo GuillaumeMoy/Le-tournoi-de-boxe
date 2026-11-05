@@ -6,13 +6,18 @@ public class PunchHitbox : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Punch hit: " + other.name);
-
             EnemyHealth enemy = other.GetComponent<EnemyHealth>();
 
             if (enemy != null)
             {
-                enemy.TakeDamage(10);
+                // Punch strength comes from the Powerups object (knuckles, creatine, steroids).
+                // If it's missing, fall back to the old plain 10.
+                int damage = PlayerPowerups.Instance != null
+                    ? PlayerPowerups.Instance.Damage
+                    : 10;
+
+                Debug.Log("Punch hit: " + other.name + " for " + damage);
+                enemy.TakeDamage(damage);
             }
         }
     }

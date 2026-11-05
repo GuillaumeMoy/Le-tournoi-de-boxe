@@ -5,6 +5,10 @@ using TMPro;
 // Fight -> enemy dies -> shop shows -> Next Round -> 3 2 1 -> fight again (forever for now)
 public class RoundManager : MonoBehaviour
 {
+    // True only while a fight is really happening (not during the 3-2-1 countdown or the shop).
+    // The enemy's punch script checks this so it doesn't attack at the wrong time.
+    public static bool FightIsOn { get; private set; } = true;
+
     public EnemyHealth enemy;
     public GameObject shopScreen;     // the shop canvas (Shop button, money, menu, Next Round)
     public onbuttondo shopMenu;       // opens/closes the shop menu
@@ -129,6 +133,8 @@ public class RoundManager : MonoBehaviour
 
     void SetPlayerControls(bool on)
     {
+        FightIsOn = on;   // lets the enemy know whether it may attack
+
         if (playerControls == null)
             return;
         foreach (var b in playerControls)

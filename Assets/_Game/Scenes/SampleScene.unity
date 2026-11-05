@@ -770,6 +770,7 @@ GameObject:
   - component: {fileID: 511422892}
   - component: {fileID: 511422891}
   - component: {fileID: 511422895}
+  - component: {fileID: 511422896}
   m_Layer: 0
   m_Name: Punching Bag
   m_TagString: Enemy
@@ -915,6 +916,25 @@ MonoBehaviour:
   spriteRenderer: {fileID: 511422892}
   hitColor: {r: 1, g: 0.5, b: 0.5, a: 1}
   flashDuration: 0.12
+--- !u!114 &511422896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511422890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f875a09bdfc2b4fa8b3e41b1a014a706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  player: {fileID: 0}
+  damage: 10
+  attackRange: 2.5
+  timeBetweenPunches: 2
+  windUpTime: 0.4
+  spriteRenderer: {fileID: 0}
+  windUpColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &656459752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,6 +1174,59 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1352634571}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &707123677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 707123679}
+  - component: {fileID: 707123678}
+  m_Layer: 0
+  m_Name: Powerups
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &707123678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707123677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5877d15429d9643ef937436667754c5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerPowerups
+  baseDamage: 10
+  brassKnucklesBonus: 8
+  creatineBonus: 3
+  steroidsMultiplier: 3
+  helmetDamageReduction: 0.3
+  hasBrassKnuckles: 0
+  hasCreatine: 0
+  hasSteroids: 0
+  hasHelmet: 0
+--- !u!4 &707123679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707123677}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.59428, y: 4.21074, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &754138327
 GameObject:
@@ -1835,7 +1908,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.899378
+  orthographic size: 7
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1860,7 +1933,7 @@ Transform:
   m_GameObject: {fileID: 1317552810}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.42, y: 3.4226265, z: -10}
+  m_LocalPosition: {x: -0.84, y: 3.4226265, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1893,7 +1966,7 @@ Transform:
   m_GameObject: {fileID: 1349943255}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0901, y: 0.0363, z: 0}
+  m_LocalPosition: {x: 0.138, y: 0.0363, z: 0}
   m_LocalScale: {x: 0.0375, y: 0.062499, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2610,3 +2683,4 @@ SceneRoots:
   - {fileID: 1440491578}
   - {fileID: 796955017}
   - {fileID: 1583679850}
+  - {fileID: 707123679}
