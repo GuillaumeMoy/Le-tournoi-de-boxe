@@ -16,7 +16,9 @@ public class EnemyHealth : MonoBehaviour
     private Color originalColor;
     private Coroutine flashCoroutine;
 
-    void Start()
+    // Awake (not Start) so the real colour is known even if ResetHealth runs before the first frame;
+    // otherwise originalColor stays (0,0,0,0) and the enemy turns invisible.
+    void Awake()
     {
         maxHealth = health;
 
@@ -25,7 +27,10 @@ public class EnemyHealth : MonoBehaviour
 
         if (spriteRenderer != null)
             originalColor = spriteRenderer.color;
+    }
 
+    void Start()
+    {
         UpdateHealthText();
     }
 
