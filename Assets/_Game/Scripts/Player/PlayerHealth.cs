@@ -25,7 +25,12 @@ public class PlayerHealth : MonoBehaviour
         UpdateBar();
 
         if (health <= 0)
+        {
             Debug.Log("Player knocked out!");
+            GameOverUI gameOver = FindFirstObjectByType<GameOverUI>();
+            if (gameOver != null)
+                gameOver.ShowGameOver();   // death screen + pauses the game
+        }
     }
 
     // Test button: while the game is running, right-click the "Player Health"
