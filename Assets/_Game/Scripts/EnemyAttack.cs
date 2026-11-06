@@ -19,6 +19,7 @@ public class EnemyAttack : MonoBehaviour
 
     [Header("Walking")]
     public float walkSpeed = 2f;            // how fast it walks towards the player
+    public float stopDistance = 1.7f;       // stops this close (center to center): just inside the player's punch reach
 
     [Header("Warning flash (found automatically if left empty)")]
     public SpriteRenderer spriteRenderer;
@@ -70,13 +71,17 @@ public class EnemyAttack : MonoBehaviour
         if (player == null || player.health <= 0 || windingUp)
             return;
 
-        if (!PlayerInRange())
+        // Walk up close (left/right only, stays on the floor), even while already in punching range
+        float gap = transform.position.x - player.transform.position.x;
+        if (Mathf.Abs(gap) > stopDistance)
         {
-            // Too far to punch: walk towards the player (left/right only, stays on the floor)
-            float x = Mathf.MoveTowards(transform.position.x, player.transform.position.x, walkSpeed * Time.deltaTime);
+            float targetX = player.transform.position.x + Mathf.Sign(gap) * stopDistance;
+            float x = Mathf.MoveTowards(transform.position.x, targetX, walkSpeed * Time.deltaTime);
             transform.position = new Vector3(x, transform.position.y, transform.position.z);
-            return;
         }
+
+        if (!PlayerInRange())
+            return;
 
         timer -= Time.deltaTime;
 
