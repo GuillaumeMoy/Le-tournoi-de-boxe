@@ -17,6 +17,9 @@ public class EnemyAttack : MonoBehaviour
     public float timeBetweenPunches = 2f;   // seconds between punches
     public float windUpTime = 0.4f;         // warning time before the punch lands
 
+    [Header("Walking")]
+    public float walkSpeed = 2f;            // how fast it walks towards the player
+
     [Header("Warning flash (found automatically if left empty)")]
     public SpriteRenderer spriteRenderer;
     public Color windUpColor = Color.yellow;
@@ -24,9 +27,12 @@ public class EnemyAttack : MonoBehaviour
     private float timer;
     private bool windingUp;
     private Color originalColor = Color.white;
+    private Vector3 startPosition;
 
     void Awake()
     {
+        startPosition = transform.position;
+
         if (player == null)
             player = FindFirstObjectByType<PlayerHealth>();
 
@@ -41,6 +47,7 @@ public class EnemyAttack : MonoBehaviour
     // so every round starts with a fresh punch timer.
     void OnEnable()
     {
+        transform.position = startPosition;   // back to its corner every round
         timer = timeBetweenPunches;
         windingUp = false;
     }
@@ -64,7 +71,12 @@ public class EnemyAttack : MonoBehaviour
             return;
 
         if (!PlayerInRange())
+        {
+            // Too far to punch: walk towards the player (left/right only, stays on the floor)
+            float x = Mathf.MoveTowards(transform.position.x, player.transform.position.x, walkSpeed * Time.deltaTime);
+            transform.position = new Vector3(x, transform.position.y, transform.position.z);
             return;
+        }
 
         timer -= Time.deltaTime;
 
