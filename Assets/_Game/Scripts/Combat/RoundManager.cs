@@ -64,20 +64,31 @@ public class RoundManager : MonoBehaviour
         if (t != null)
         {
             RectTransform rt = t.rectTransform;
-            Vector2 home = rt.anchoredPosition;
+            Vector2 oldPos = rt.anchoredPosition, oldSize = rt.sizeDelta;
+            TextWrappingModes oldWrap = t.textWrappingMode;
+            float oldFont = t.fontSize;
             Color gold = t.color;
 
+            // Dead center, box = 70% of the screen width, text shrinks to fit inside it
+            Rect screen = ((RectTransform)t.canvas.rootCanvas.transform).rect;
+            Vector2 home = Vector2.zero;
+            rt.anchoredPosition = home;
+            rt.sizeDelta = new Vector2(screen.width * 0.7f, screen.height * 0.35f);
+            t.enableAutoSizing = true;
+            t.fontSizeMin = 20f;
+            t.fontSizeMax = 110f;
+
             t.text = "BATTLE WON!";
-            t.textWrappingMode = TextWrappingModes.NoWrap;   // one line, even though the box is narrow
+            t.textWrappingMode = TextWrappingModes.NoWrap;   // keep it on one line
             t.outlineWidth = 0.25f;
             t.outlineColor = Color.black;
             t.gameObject.SetActive(true);
 
-            // Slam in: from huge and see-through down to normal size, with a little bounce
+            // Slam in: from big and see-through down to normal size, with a little bounce
             for (float e = 0f; e < 0.35f; e += Time.deltaTime)
             {
                 float k = e / 0.35f;
-                rt.localScale = Vector3.one * Mathf.LerpUnclamped(4f, 1f, EaseOutBack(k));
+                rt.localScale = Vector3.one * Mathf.LerpUnclamped(1.8f, 1f, EaseOutBack(k));
                 t.alpha = k;
                 yield return null;
             }
@@ -106,7 +117,7 @@ public class RoundManager : MonoBehaviour
             for (float e = 0f; e < 0.25f; e += Time.deltaTime)
             {
                 float k = e / 0.25f;
-                rt.localScale = Vector3.one * Mathf.Lerp(1f, 1.6f, k);
+                rt.localScale = Vector3.one * Mathf.Lerp(1f, 1.25f, k);
                 t.alpha = 1f - k;
                 yield return null;
             }
@@ -115,6 +126,11 @@ public class RoundManager : MonoBehaviour
             t.gameObject.SetActive(false);
             rt.localScale = Vector3.one;
             rt.localRotation = Quaternion.identity;
+            rt.anchoredPosition = oldPos;
+            rt.sizeDelta = oldSize;
+            t.enableAutoSizing = false;
+            t.fontSize = oldFont;   // auto-size changed it; countdown needs its own size back
+            t.textWrappingMode = oldWrap;
             t.alpha = 1f;
         }
 
