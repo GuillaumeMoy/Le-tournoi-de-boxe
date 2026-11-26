@@ -61,9 +61,9 @@ public class RoundManager : MonoBehaviour
         if (shop != null)
             shop.AddGold(goldPerWin);
         if (round >= lastRound)
-            StartCoroutine(BattleWon("CHAMPION!", false));   // beat the final boss: the end
+            StartCoroutine(BattleWon("CHAMPION !", false));   // beat the final boss: the end
         else
-            StartCoroutine(BattleWon("BATTLE WON!", true)); // banner first, then the shop
+            StartCoroutine(BattleWon("VICTOIRE !", true)); // banner first, then the shop
     }
 
     // Big "BATTLE WON!" in the middle: slams in, shakes, flashes white, pulses, zooms out. Then opens the shop.
@@ -153,7 +153,7 @@ public class RoundManager : MonoBehaviour
                 t.enableAutoSizing = true;
                 t.rectTransform.sizeDelta = new Vector2(((RectTransform)t.canvas.rootCanvas.transform).rect.width * 0.8f, 300f);
                 t.textWrappingMode = TextWrappingModes.Normal;
-                t.text = "YOU ARE THE CHAMPION!\n<size=50%>Hard work pays off.</size>";
+                t.text = "TU ES LE CHAMPION !\n<size=50%>Le travail finit toujours par payer.</size>";
                 t.gameObject.SetActive(true);
             }
             yield break;
@@ -239,7 +239,7 @@ public class RoundManager : MonoBehaviour
                 countdownText.text = i.ToString();
                 yield return new WaitForSeconds(1f);
             }
-            countdownText.text = "FIGHT!";
+            countdownText.text = "BOXE !";
         }
 
         SetPlayerControls(true);

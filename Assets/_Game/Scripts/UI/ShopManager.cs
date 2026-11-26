@@ -57,14 +57,14 @@ public class ShopManager : MonoBehaviour
         // Prevent invalid item IDs
         if (string.IsNullOrWhiteSpace(itemID))
         {
-            ShowMessage("ITEM NOT FOUND!");
+            ShowMessage("OBJET INTROUVABLE !");
             return;
         }
 
         // Stop the player from buying the same item twice
         if (purchasedItems.Contains(itemID))
         {
-            ShowMessage("ALREADY OWNED!");
+            ShowMessage("DÉJÀ ACHETÉ !");
             return;
         }
 
@@ -73,20 +73,20 @@ public class ShopManager : MonoBehaviour
 
         if (price < 0)
         {
-            ShowMessage("ITEM NOT FOUND!");
+            ShowMessage("OBJET INTROUVABLE !");
             return;
         }
 
         if (price == 0)
         {
-            ShowMessage("INVALID ITEM PRICE!");
+            ShowMessage("PRIX INVALIDE !");
             return;
         }
 
         // Check if the player has enough gold
         if (currentGold < price)
         {
-            ShowMessage("NOT ENOUGH GOLD!");
+            ShowMessage("PAS ASSEZ D'ARGENT !");
             return;
         }
 
@@ -104,7 +104,7 @@ public class ShopManager : MonoBehaviour
         UpdateGoldText();
         UpdatePurchaseButtons();
 
-        ShowMessage("PURCHASE SUCCESSFUL!");
+        ShowMessage("ACHAT RÉUSSI !");
     }
 
     int GetItemPrice(string itemID)
@@ -132,7 +132,7 @@ public class ShopManager : MonoBehaviour
     {
         if (goldText != null)
         {
-            goldText.text = "$" + currentGold;
+            goldText.text = currentGold + " $";
         }
     }
 
@@ -160,7 +160,7 @@ public class ShopManager : MonoBehaviour
         TMP_Text buttonLabel = button.GetComponentInChildren<TMP_Text>();
         if (buttonLabel != null)
         {
-            buttonLabel.text = alreadyOwned ? "OWNED" : "Buy ($" + GetItemPrice(itemID) + ")";
+            buttonLabel.text = alreadyOwned ? "ACHETÉ" : "ACHETER (" + GetItemPrice(itemID) + " $)";
         }
     }
 

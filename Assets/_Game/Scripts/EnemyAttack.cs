@@ -73,14 +73,14 @@ public class EnemyAttack : MonoBehaviour
         if (player == null || player.health <= 0 || windingUp)
             return;
 
-        // Can't punch with the guard up
-        if (boxer != null && boxer.IsGuarding)
-            return;
-
         if (!PlayerInRange())
             return;
 
         timer -= Time.deltaTime;
+
+        // Can't punch with the guard up, but the timer keeps running: it counter-punches as soon as the guard drops
+        if (boxer != null && boxer.IsGuarding)
+            return;
 
         if (timer <= 0f)
             StartCoroutine(Punch());

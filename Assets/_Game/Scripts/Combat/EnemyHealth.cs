@@ -99,7 +99,7 @@ public class EnemyHealth : MonoBehaviour
     void UpdateHealthText()
     {
         if (healthText != null)
-            healthText.text = "Health: " + health;
+            healthText.text = "Santé : " + health;
 
         if (healthBar != null)
             healthBar.SetHealth(health, maxHealth);

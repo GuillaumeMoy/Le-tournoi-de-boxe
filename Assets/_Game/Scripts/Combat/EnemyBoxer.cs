@@ -29,6 +29,8 @@ public class EnemyBoxer : MonoBehaviour
         public float approachSpeed = 3f;
         [Tooltip("Chance (each second) to raise the guard: hits do only 25% damage while it's up")]
         [Range(0f, 1f)] public float blockChance = 0f;
+        [Tooltip("Chance to throw the guard up the moment the player punches")]
+        [Range(0f, 1f)] public float reactBlockChance = 0f;
         [Tooltip("Chance (each second) to suddenly step back")]
         [Range(0f, 1f)] public float retreatChance = 0f;
         [Tooltip("Story rule: a player who bought steroids can never hurt this boxer")]
@@ -47,9 +49,9 @@ public class EnemyBoxer : MonoBehaviour
     [Header("Story message (no shortcuts in life)")]
     public TMP_Text messageText;
     [TextArea]
-    public string shortcutMessage = "YOUR PUNCHES DO NOTHING!\nSteroids are a shortcut... and there are no shortcuts in life.";
+    public string shortcutMessage = "TES COUPS NE FONT RIEN !\nLes stéroïdes sont un raccourci... et il n'y a pas de raccourci dans la vie.";
     [TextArea]
-    public string shortcutLoseMessage = "THERE ARE NO SHORTCUTS IN LIFE.\nHARD WORK BEATS DRUGS.";
+    public string shortcutLoseMessage = "IL N'Y A PAS DE RACCOURCI DANS LA VIE.\nLE TRAVAIL BAT LA DROGUE.";
 
     public Opponent Current { get; private set; }
 
@@ -58,6 +60,7 @@ public class EnemyBoxer : MonoBehaviour
     public const float GuardDamageMultiplier = 0.25f;
     private float guardTimer;
     private float guardCheckTimer;
+    private float guardCooldown;   // short gap after each guard so the enemy can't block forever
 
     private EnemyHealth health;
     private EnemyAttack attack;
@@ -109,6 +112,7 @@ public class EnemyBoxer : MonoBehaviour
         blockPoseTimer = 0f;
         guardTimer = 0f;
         guardCheckTimer = 1f;
+        guardCooldown = 0f;
 
         if (spriteRenderer != null)
             spriteRenderer.sprite = Current.normal;
@@ -178,6 +182,7 @@ public class EnemyBoxer : MonoBehaviour
     void UpdateGuard()
     {
         guardTimer -= Time.deltaTime;
+        guardCooldown -= Time.deltaTime;
         if (!RoundManager.FightIsOn || IsGuarding || (attack != null && attack.IsWindingUp))
             return;
 
@@ -187,7 +192,28 @@ public class EnemyBoxer : MonoBehaviour
 
         guardCheckTimer = 1f;
         if (Random.value < Current.blockChance)
-            guardTimer = Random.Range(0.8f, 1.5f);
+            RaiseGuard(Random.Range(0.6f, 1.1f));
+    }
+
+    void RaiseGuard(float seconds)
+    {
+        if (guardCooldown > 0f)
+            return;
+        guardTimer = seconds;
+        guardCooldown = seconds + 0.5f;
+    }
+
+    // Called by the player's punch: true = this punch hits the guard.
+    // The enemy may throw its guard up just in time (not while winding up its own punch).
+    public bool BlocksPunch()
+    {
+        if (IsGuarding)
+            return true;
+        if (Current == null || (attack != null && attack.IsWindingUp))
+            return false;
+        if (Random.value < Current.reactBlockChance)
+            RaiseGuard(0.45f);
+        return IsGuarding;
     }
 
     void LateUpdate()

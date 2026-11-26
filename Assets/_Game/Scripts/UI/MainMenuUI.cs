@@ -49,7 +49,7 @@ public class MainMenuUI : MonoBehaviour
         if (load != null)
             load.allowSceneActivation = false;
 
-        string[] dots = { "LOADING", "LOADING.", "LOADING..", "LOADING..." };
+        string[] dots = { "CHARGEMENT", "CHARGEMENT.", "CHARGEMENT..", "CHARGEMENT..." };
         float t = 0f;
         while (true)
         {
