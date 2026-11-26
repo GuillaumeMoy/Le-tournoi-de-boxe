@@ -192,7 +192,7 @@ public class RoundManager : MonoBehaviour
         SetFightUI(true);
 
         round++;
-        Debug.Log("Round " + round);
+        Debug.Log("Ronde " + round);
 
         if (enemyBoxer != null)
             enemyBoxer.Setup(round - 1);   // next opponent (sets its health too)
@@ -231,7 +231,7 @@ public class RoundManager : MonoBehaviour
 
             // "ROUND 2" on one line, small enough to fit (the names are already above the health bars)
             countdownText.textWrappingMode = TextWrappingModes.NoWrap;
-            countdownText.text = "<size=70%>ROUND " + round + "</size>";
+            countdownText.text = "<size=70%>RONDE " + round + "</size>";
             yield return new WaitForSeconds(2f);
 
             for (int i = 3; i >= 1; i--)
