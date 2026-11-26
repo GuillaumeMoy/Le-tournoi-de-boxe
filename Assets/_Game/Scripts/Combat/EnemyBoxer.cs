@@ -14,6 +14,7 @@ public class EnemyBoxer : MonoBehaviour
     public class Opponent
     {
         public string name = "Boxer";
+        public string barName = "BOXER";   // short name written on the health bar
         [Header("Sprites (all drawn facing RIGHT)")]
         public Sprite normal;
         public Sprite block;
@@ -33,6 +34,9 @@ public class EnemyBoxer : MonoBehaviour
     [Header("Found automatically if left empty")]
     public Transform player;
     public SpriteRenderer spriteRenderer;
+
+    [Tooltip("The name on the enemy's health bar")]
+    public TMP_Text nameText;
 
     [Header("Story message (no shortcuts in life)")]
     public TMP_Text messageText;
@@ -94,6 +98,9 @@ public class EnemyBoxer : MonoBehaviour
 
         if (spriteRenderer != null)
             spriteRenderer.sprite = Current.normal;
+
+        if (nameText != null)
+            nameText.text = Current.barName;
 
         if (health != null)
             health.SetMaxHealth(Current.health);
