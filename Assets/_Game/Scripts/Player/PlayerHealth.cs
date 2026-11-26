@@ -5,6 +5,7 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100;
     public int health;
     public HealthBarUI healthBar;
+    [Range(0f, 1f)] public float blockedDamageMultiplier = 0.25f;
 
     // Other scripts (like PlayerDeath) listen to this to know the player was knocked out
     public System.Action Died;
@@ -28,6 +29,11 @@ public class PlayerHealth : MonoBehaviour
         // The helmet (from the shop) makes every hit hurt less
         if (PlayerPowerups.Instance != null)
             damage = PlayerPowerups.Instance.ReduceIncomingDamage(damage);
+
+        // Blocking (right mouse) takes most of the sting out of a hit
+        BoxerAttack guard = GetComponentInChildren<BoxerAttack>();
+        if (guard != null && guard.IsBlocking)
+            damage = Mathf.Max(1, Mathf.RoundToInt(damage * blockedDamageMultiplier));
 
         Debug.Log("Player took " + damage + " damage");
 

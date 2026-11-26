@@ -2,7 +2,8 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
-// Fight -> enemy dies -> shop shows -> Next Round -> 3 2 1 -> fight again (forever for now)
+// Round 1..5, a different boxer each round: ROUND X + name -> 3 2 1 -> fight -> enemy dies -> shop -> Next Round.
+// Beating round 5 makes you the champion.
 public class RoundManager : MonoBehaviour
 {
     // True only while a fight is really happening (not during the 3-2-1 countdown or the shop).
@@ -10,6 +11,8 @@ public class RoundManager : MonoBehaviour
     public static bool FightIsOn { get; private set; } = true;
 
     public EnemyHealth enemy;
+    public EnemyBoxer enemyBoxer;     // who you fight each round (names, sprites, strength)
+    public int lastRound = 5;
     public GameObject shopScreen;     // the shop canvas (Shop button, money, menu, Next Round)
     public onbuttondo shopMenu;       // opens/closes the shop menu
     public GameObject[] hideDuringShop; // e.g. the health bars
@@ -22,7 +25,7 @@ public class RoundManager : MonoBehaviour
 
     [Header("Rewards")]
     public ShopManager shop;
-    public int goldPerWin = 50;
+    public int goldPerWin = 25;
     public PlayerHealth playerHealth;
 
     private Vector3 playerStartPosition;
@@ -45,6 +48,9 @@ public class RoundManager : MonoBehaviour
         if (shopScreen != null)
             shopScreen.SetActive(false);
 
+        if (enemyBoxer != null)
+            enemyBoxer.Setup(round - 1);
+
         // First round gets a countdown too
         countdown = StartCoroutine(Countdown());
     }
@@ -54,11 +60,14 @@ public class RoundManager : MonoBehaviour
         SetPlayerControls(false); // no walking/punching while shopping
         if (shop != null)
             shop.AddGold(goldPerWin);
-        StartCoroutine(BattleWon()); // banner first, then the shop
+        if (round >= lastRound)
+            StartCoroutine(BattleWon("CHAMPION!", false));   // beat the final boss: the end
+        else
+            StartCoroutine(BattleWon("BATTLE WON!", true)); // banner first, then the shop
     }
 
     // Big "BATTLE WON!" in the middle: slams in, shakes, flashes white, pulses, zooms out. Then opens the shop.
-    IEnumerator BattleWon()
+    IEnumerator BattleWon(string bannerText, bool openShop)
     {
         TMP_Text t = countdownText;   // reuse the big centered countdown text
         if (t != null)
@@ -78,7 +87,7 @@ public class RoundManager : MonoBehaviour
             t.fontSizeMin = 20f;
             t.fontSizeMax = 110f;
 
-            t.text = "BATTLE WON!";
+            t.text = bannerText;
             t.textWrappingMode = TextWrappingModes.NoWrap;   // keep it on one line
             t.outlineWidth = 0.25f;
             t.outlineColor = Color.black;
@@ -135,6 +144,21 @@ public class RoundManager : MonoBehaviour
         }
 
         SetFightUI(false);
+
+        if (!openShop)
+        {
+            // Game finished: leave a final message on screen
+            if (t != null)
+            {
+                t.enableAutoSizing = true;
+                t.rectTransform.sizeDelta = new Vector2(((RectTransform)t.canvas.rootCanvas.transform).rect.width * 0.8f, 300f);
+                t.textWrappingMode = TextWrappingModes.Normal;
+                t.text = "YOU ARE THE CHAMPION!\n<size=50%>Hard work pays off.</size>";
+                t.gameObject.SetActive(true);
+            }
+            yield break;
+        }
+
         if (shopScreen != null)
             shopScreen.SetActive(true);
     }
@@ -170,6 +194,9 @@ public class RoundManager : MonoBehaviour
         round++;
         Debug.Log("Round " + round);
 
+        if (enemyBoxer != null)
+            enemyBoxer.Setup(round - 1);   // next opponent (sets its health too)
+
         if (enemy != null)
             enemy.ResetHealth();
 
@@ -201,6 +228,12 @@ public class RoundManager : MonoBehaviour
         if (countdownText != null)
         {
             countdownText.gameObject.SetActive(true);
+
+            // "ROUND 2" with the opponent's name under it
+            string who = enemyBoxer != null && enemyBoxer.Current != null ? enemyBoxer.Current.name : "";
+            countdownText.text = "ROUND " + round + "\n<size=45%>" + who + "</size>";
+            yield return new WaitForSeconds(2f);
+
             for (int i = 3; i >= 1; i--)
             {
                 countdownText.text = i.ToString();

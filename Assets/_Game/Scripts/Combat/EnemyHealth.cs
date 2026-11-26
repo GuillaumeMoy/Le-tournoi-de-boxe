@@ -56,6 +56,14 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    // A new opponent: new max health, starts full
+    public void SetMaxHealth(int hp)
+    {
+        maxHealth = hp;
+        health = hp;
+        UpdateHealthText();
+    }
+
     // Brings the enemy back with full health for the next round
     public void ResetHealth()
     {

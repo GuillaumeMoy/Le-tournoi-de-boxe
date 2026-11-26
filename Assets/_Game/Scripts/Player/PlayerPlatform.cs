@@ -26,6 +26,7 @@ public class PlayerPlatform : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Animator animator;
     public Animator boxerAnimator; // the BOXER child: Idle/Walk/Attack
+    public Transform opponent;     // found automatically (the enemy)
 
     // Private variables
     private Rigidbody2D rb;
@@ -53,6 +54,13 @@ public class PlayerPlatform : MonoBehaviour
         // If no animator is assigned, try to get it from the object
         if (animator == null)
             animator = GetComponent<Animator>();
+
+        if (opponent == null)
+        {
+            EnemyHealth enemy = FindFirstObjectByType<EnemyHealth>(FindObjectsInactive.Include);
+            if (enemy != null)
+                opponent = enemy.transform;
+        }
     }
 
     void Update()
@@ -104,10 +112,12 @@ public class PlayerPlatform : MonoBehaviour
         // Apply force for movement
         rb.AddForce(movement * Vector2.right);
 
-        // Flip character sprite if needed
-        if ((horizontalInput > 0 && !isFacingRight) || (horizontalInput < 0 && isFacingRight))
+        // Always face the opponent (boxers never turn their back)
+        if (opponent != null)
         {
-            Flip();
+            bool enemyOnRight = opponent.position.x > transform.position.x;
+            if (enemyOnRight != isFacingRight)
+                Flip();
         }
     }
 
