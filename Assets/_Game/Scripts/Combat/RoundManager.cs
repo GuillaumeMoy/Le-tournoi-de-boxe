@@ -229,9 +229,9 @@ public class RoundManager : MonoBehaviour
         {
             countdownText.gameObject.SetActive(true);
 
-            // "ROUND 2" with the opponent's name under it
-            string who = enemyBoxer != null && enemyBoxer.Current != null ? enemyBoxer.Current.name : "";
-            countdownText.text = "ROUND " + round + "\n<size=45%>" + who + "</size>";
+            // "ROUND 2" on one line, small enough to fit (the names are already above the health bars)
+            countdownText.textWrappingMode = TextWrappingModes.NoWrap;
+            countdownText.text = "<size=70%>ROUND " + round + "</size>";
             yield return new WaitForSeconds(2f);
 
             for (int i = 3; i >= 1; i--)
