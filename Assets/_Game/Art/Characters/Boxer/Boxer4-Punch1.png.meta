@@ -1,0 +1,832 @@
+fileFormatVersion: 2
+guid: cccd8c6c76a7745b3a4d22482819d3ec
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3617517492432813552
+    second: Boxer4-Punch1_0
+  - first:
+      213: 4146612056633531683
+    second: Boxer4-Punch1_1
+  - first:
+      213: -3977792717742865717
+    second: Boxer4-Punch1_2
+  - first:
+      213: 8394428557515785653
+    second: Boxer4-Punch1_3
+  - first:
+      213: 6316881723947512732
+    second: Boxer4-Punch1_4
+  - first:
+      213: -2285045064097550879
+    second: Boxer4-Punch1_5
+  - first:
+      213: -8332934658206520640
+    second: Boxer4-Punch1_6
+  - first:
+      213: 4593853542103226821
+    second: Boxer4-Punch1_7
+  - first:
+      213: -116639237699672374
+    second: Boxer4-Punch1_8
+  - first:
+      213: 4244360959203335911
+    second: Boxer4-Punch1_9
+  - first:
+      213: -5504032122358738647
+    second: Boxer4-Punch1_10
+  - first:
+      213: 7327588860901957802
+    second: Boxer4-Punch1_11
+  - first:
+      213: -4045247712146918365
+    second: Boxer4-Punch1_12
+  - first:
+      213: -7043195500853383771
+    second: Boxer4-Punch1_13
+  - first:
+      213: 4076496725808527528
+    second: Boxer4-Punch1_14
+  - first:
+      213: -8005660813345925326
+    second: Boxer4-Punch1_15
+  - first:
+      213: -2778384969404638246
+    second: Boxer4-Punch1_16
+  - first:
+      213: -8712519389807239864
+    second: Boxer4-Punch1_17
+  - first:
+      213: -1312712570361488361
+    second: Boxer4-Punch1_18
+  - first:
+      213: 7163895130030530863
+    second: Boxer4-Punch1_19
+  - first:
+      213: -657690331571829262
+    second: Boxer4-Punch1_20
+  - first:
+      213: 3075569950432796929
+    second: Boxer4-Punch1_21
+  - first:
+      213: 9140654807822868473
+    second: Boxer4-Punch1_22
+  - first:
+      213: -5124864785577445457
+    second: Boxer4-Punch1_23
+  - first:
+      213: -2571885205504714015
+    second: Boxer4-Punch1_24
+  - first:
+      213: 669642506709685654
+    second: Boxer4-Punch1_25
+  - first:
+      213: 5865325486873213352
+    second: Boxer4-Punch1_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boxer4-Punch1_0
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 1442
+        width: 215
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fd38313ef0043230800000000000000
+      internalID: 3617517492432813552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_1
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 1454
+        width: 352
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32d5ef022b9bb8930800000000000000
+      internalID: 4146612056633531683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_2
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 1553
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc20dc4399a0cc8c0800000000000000
+      internalID: -3977792717742865717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_3
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 1549
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b58f172c400f7470800000000000000
+      internalID: 8394428557515785653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_4
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 1533
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c937c0ca5721aa750800000000000000
+      internalID: 6316881723947512732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_5
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 1513
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eda4b2fe93e940e0800000000000000
+      internalID: -2285045064097550879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_6
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 1515
+        width: 24
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ca2f0104187b5c80800000000000000
+      internalID: -8332934658206520640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_7
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 1507
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c99b3f0575a0cf30800000000000000
+      internalID: 4593853542103226821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_8
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 1489
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac6e9063b3d916ef0800000000000000
+      internalID: -116639237699672374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 884
+        height: 1443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eed9d70ecff6ea30800000000000000
+      internalID: 4244360959203335911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_10
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 1440
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 921d77242ffbd93b0800000000000000
+      internalID: -5504032122358738647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_11
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 1441
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa0ab2aee33d0b560800000000000000
+      internalID: 7327588860901957802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_12
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 1378
+        width: 49
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 324750173a46cd7c0800000000000000
+      internalID: -4045247712146918365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_13
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 991
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ad2108220b814e90800000000000000
+      internalID: -7043195500853383771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_14
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 975
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a83cd58c20a29830800000000000000
+      internalID: 4076496725808527528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_15
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 973
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2375044f7ed26e090800000000000000
+      internalID: -8005660813345925326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_16
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 201
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adb1a5147913179d0800000000000000
+      internalID: -2778384969404638246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_17
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 209
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84d16df96c9e61780800000000000000
+      internalID: -8712519389807239864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_18
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 195
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71cd96f4fde48cde0800000000000000
+      internalID: -1312712570361488361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_19
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 175
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f21ee913aa44b6360800000000000000
+      internalID: 7163895130030530863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_20
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 178
+        width: 34
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f5c376c02a6fd6f0800000000000000
+      internalID: -657690331571829262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_21
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 176
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 101a969239e9eaa20800000000000000
+      internalID: 3075569950432796929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_22
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 178
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ff9fb25e112ade70800000000000000
+      internalID: 9140654807822868473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_23
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 178
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa77fb551a2d0e8b0800000000000000
+      internalID: -5124864785577445457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_24
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 160
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ea1fc23804de4cd0800000000000000
+      internalID: -2571885205504714015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_25
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 160
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 695deeadf4c0b4900800000000000000
+      internalID: 669642506709685654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxer4-Punch1_26
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 168
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a97f195472d56150800000000000000
+      internalID: 5865325486873213352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Boxer4-Punch1_0: 3617517492432813552
+      Boxer4-Punch1_1: 4146612056633531683
+      Boxer4-Punch1_10: -5504032122358738647
+      Boxer4-Punch1_11: 7327588860901957802
+      Boxer4-Punch1_12: -4045247712146918365
+      Boxer4-Punch1_13: -7043195500853383771
+      Boxer4-Punch1_14: 4076496725808527528
+      Boxer4-Punch1_15: -8005660813345925326
+      Boxer4-Punch1_16: -2778384969404638246
+      Boxer4-Punch1_17: -8712519389807239864
+      Boxer4-Punch1_18: -1312712570361488361
+      Boxer4-Punch1_19: 7163895130030530863
+      Boxer4-Punch1_2: -3977792717742865717
+      Boxer4-Punch1_20: -657690331571829262
+      Boxer4-Punch1_21: 3075569950432796929
+      Boxer4-Punch1_22: 9140654807822868473
+      Boxer4-Punch1_23: -5124864785577445457
+      Boxer4-Punch1_24: -2571885205504714015
+      Boxer4-Punch1_25: 669642506709685654
+      Boxer4-Punch1_26: 5865325486873213352
+      Boxer4-Punch1_3: 8394428557515785653
+      Boxer4-Punch1_4: 6316881723947512732
+      Boxer4-Punch1_5: -2285045064097550879
+      Boxer4-Punch1_6: -8332934658206520640
+      Boxer4-Punch1_7: 4593853542103226821
+      Boxer4-Punch1_8: -116639237699672374
+      Boxer4-Punch1_9: 4244360959203335911
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
