@@ -24,7 +24,13 @@ public class EnemyBoxer : MonoBehaviour
         public int health = 100;
         public int damage = 10;
         public float timeBetweenPunches = 2f;
+        [Tooltip("Yellow warning before the punch lands. Longer = easier to dodge or block")]
+        public float windUpTime = 0.4f;
         public float approachSpeed = 3f;
+        [Tooltip("Chance (each second) to raise the guard: hits do only 25% damage while it's up")]
+        [Range(0f, 1f)] public float blockChance = 0f;
+        [Tooltip("Chance (each second) to suddenly step back")]
+        [Range(0f, 1f)] public float retreatChance = 0f;
         [Tooltip("Story rule: a player who bought steroids can never hurt this boxer")]
         public bool steroidsCantBeatMe;
     }
@@ -46,6 +52,12 @@ public class EnemyBoxer : MonoBehaviour
     public string shortcutLoseMessage = "THERE ARE NO SHORTCUTS IN LIFE.\nHARD WORK BEATS DRUGS.";
 
     public Opponent Current { get; private set; }
+
+    // Guard up: the player's punches do only 25% damage and the enemy can't punch
+    public bool IsGuarding => guardTimer > 0f;
+    public const float GuardDamageMultiplier = 0.25f;
+    private float guardTimer;
+    private float guardCheckTimer;
 
     private EnemyHealth health;
     private EnemyAttack attack;
@@ -95,6 +107,8 @@ public class EnemyBoxer : MonoBehaviour
         Current = opponents[Mathf.Clamp(index, 0, opponents.Length - 1)];
         punchPoseTimer = 0f;
         blockPoseTimer = 0f;
+        guardTimer = 0f;
+        guardCheckTimer = 1f;
 
         if (spriteRenderer != null)
             spriteRenderer.sprite = Current.normal;
@@ -109,10 +123,14 @@ public class EnemyBoxer : MonoBehaviour
         {
             attack.damage = Current.damage;
             attack.timeBetweenPunches = Current.timeBetweenPunches;
+            attack.windUpTime = Current.windUpTime;
         }
 
         if (movement != null)
+        {
             movement.approachSpeed = Current.approachSpeed;
+            movement.randomRetreatChance = Current.retreatChance;
+        }
 
         // A fresh round: the steroid lesson only shows on the game over screen if it happened this fight
         GameOverUI.NextSubtitle = null;
@@ -156,6 +174,22 @@ public class EnemyBoxer : MonoBehaviour
         messageRoutine = null;
     }
 
+    // Once a second, maybe raise the guard for a moment (never in the middle of a punch)
+    void UpdateGuard()
+    {
+        guardTimer -= Time.deltaTime;
+        if (!RoundManager.FightIsOn || IsGuarding || (attack != null && attack.IsWindingUp))
+            return;
+
+        guardCheckTimer -= Time.deltaTime;
+        if (guardCheckTimer > 0f)
+            return;
+
+        guardCheckTimer = 1f;
+        if (Random.value < Current.blockChance)
+            guardTimer = Random.Range(0.8f, 1.5f);
+    }
+
     void LateUpdate()
     {
         if (spriteRenderer == null || Current == null)
@@ -167,9 +201,10 @@ public class EnemyBoxer : MonoBehaviour
 
         punchPoseTimer -= Time.deltaTime;
         blockPoseTimer -= Time.deltaTime;
+        UpdateGuard();
 
         Sprite pose = Current.normal;
-        if (blockPoseTimer > 0f && Current.block != null)
+        if ((blockPoseTimer > 0f || IsGuarding) && Current.block != null)
             pose = Current.block;
         else if (attack != null && attack.IsWindingUp && Current.punch2 != null)
             pose = Current.punch2;              // pulling the arm back

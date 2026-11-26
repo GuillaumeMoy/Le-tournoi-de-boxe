@@ -2148,7 +2148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4393959268847545087, guid: 3bfdef9a32c46475ebdfab1eb85489f4, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294108902
+      value: 4294306795
       objectReference: {fileID: 0}
     - target: {fileID: 4464167484967924351, guid: 3bfdef9a32c46475ebdfab1eb85489f4, type: 3}
       propertyPath: m_Type
@@ -3540,8 +3540,6 @@ MonoBehaviour:
   attackRange: 3.5
   timeBetweenPunches: 1
   windUpTime: 0.4
-  walkSpeed: 2
-  stopDistance: 2.38
   spriteRenderer: {fileID: 0}
   windUpColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &511422897
@@ -3562,8 +3560,9 @@ MonoBehaviour:
   fightDistance: 2.8
   minDistance: 2.24
   retreatTime: 1
-  moveLeft: 6
-  moveRight: 1
+  randomRetreatChance: 0
+  moveLeft: 14.79
+  moveRight: 1.1099999
 --- !u!114 &511422898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3583,10 +3582,13 @@ MonoBehaviour:
     block: {fileID: 21300000, guid: d89e392a253838e41a443f8b4c3f664d, type: 3}
     punch1: {fileID: 21300000, guid: 426bf4d70b781b444a9309f93ccfb823, type: 3}
     punch2: {fileID: 21300000, guid: 53c795ea13a245a4199fd315cb7734e2, type: 3}
-    health: 60
-    damage: 6
-    timeBetweenPunches: 2.2
-    approachSpeed: 2.5
+    health: 30
+    damage: 3
+    timeBetweenPunches: 3.2
+    windUpTime: 1
+    approachSpeed: 2
+    blockChance: 0
+    retreatChance: 0
     steroidsCantBeatMe: 0
   - name: '"VIPER" MARCUS COLE'
     barName: MARCUS COLE
@@ -3594,10 +3596,13 @@ MonoBehaviour:
     block: {fileID: 21300000, guid: 430b7e9ece8eba14ab246f6d73946d8e, type: 3}
     punch1: {fileID: 21300000, guid: 9dcb413b1aa4357468f68cb88aad5974, type: 3}
     punch2: {fileID: 21300000, guid: b349c52c8084f224ab3ad849cdc754cd, type: 3}
-    health: 80
-    damage: 8
-    timeBetweenPunches: 2
-    approachSpeed: 3
+    health: 60
+    damage: 6
+    timeBetweenPunches: 2.5
+    windUpTime: 0.75
+    approachSpeed: 2.8
+    blockChance: 0.12
+    retreatChance: 0.1
     steroidsCantBeatMe: 0
   - name: '"THUNDER" RAY KAINE'
     barName: RAY KAINE
@@ -3605,10 +3610,13 @@ MonoBehaviour:
     block: {fileID: 21300000, guid: 4347619c23fb58648862a9e36f7c43b9, type: 3}
     punch1: {fileID: 21300000, guid: d147e2febebb3314f8a83938cb5b4bc9, type: 3}
     punch2: {fileID: 21300000, guid: 1efaf999bb161e941a6eb5d9be4ae64c, type: 3}
-    health: 100
-    damage: 10
-    timeBetweenPunches: 1.8
-    approachSpeed: 3
+    health: 95
+    damage: 9
+    timeBetweenPunches: 2
+    windUpTime: 0.55
+    approachSpeed: 3.3
+    blockChance: 0.22
+    retreatChance: 0.2
     steroidsCantBeatMe: 0
   - name: '"THE WALL" IVAN BRUTOV'
     barName: IVAN BRUTOV
@@ -3616,10 +3624,13 @@ MonoBehaviour:
     block: {fileID: 21300000, guid: 5a187595ca377a444af8e1fb66fa76df, type: 3}
     punch1: {fileID: 21300000, guid: e7946ff951d0d1447b9308d5a64656ee, type: 3}
     punch2: {fileID: 21300000, guid: 98fa354dcc56bbe4b9c9e04caf9c36d1, type: 3}
-    health: 130
-    damage: 13
+    health: 135
+    damage: 12
     timeBetweenPunches: 1.6
-    approachSpeed: 3.2
+    windUpTime: 0.45
+    approachSpeed: 3.8
+    blockChance: 0.32
+    retreatChance: 0.3
     steroidsCantBeatMe: 0
   - name: '"IRON" SAL MORETTI - THE CHAMP'
     barName: SAL MORETTI
@@ -3627,10 +3638,13 @@ MonoBehaviour:
     block: {fileID: 21300000, guid: 8606fac058d7085408a3158a5c2685be, type: 3}
     punch1: {fileID: 21300000, guid: 7750f2a90c13d0b41b1de1678044b237, type: 3}
     punch2: {fileID: 21300000, guid: f88de86734af70949810fb29fd222d5c, type: 3}
-    health: 170
+    health: 185
     damage: 16
-    timeBetweenPunches: 1.4
-    approachSpeed: 3.5
+    timeBetweenPunches: 1.3
+    windUpTime: 0.35
+    approachSpeed: 4.3
+    blockChance: 0.42
+    retreatChance: 0.4
     steroidsCantBeatMe: 1
   player: {fileID: 2040456915}
   spriteRenderer: {fileID: 511422892}

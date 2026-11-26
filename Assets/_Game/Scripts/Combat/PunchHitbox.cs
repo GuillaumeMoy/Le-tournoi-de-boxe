@@ -48,6 +48,10 @@ public class PunchHitbox : MonoBehaviour
             ? PlayerPowerups.Instance.Damage
             : 10;
 
+        // Enemy has its guard up: most of the punch is blocked
+        if (boxer != null && boxer.IsGuarding)
+            damage = Mathf.Max(1, Mathf.RoundToInt(damage * EnemyBoxer.GuardDamageMultiplier));
+
         Debug.Log("Punch hit: " + other.name + " for " + damage);
         enemy.TakeDamage(damage);
     }

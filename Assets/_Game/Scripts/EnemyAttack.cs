@@ -17,9 +17,7 @@ public class EnemyAttack : MonoBehaviour
     public float timeBetweenPunches = 2f;   // seconds between punches
     public float windUpTime = 0.4f;         // warning time before the punch lands
 
-    [Header("Walking")]
-    public float walkSpeed = 2f;            // how fast it walks towards the player
-    public float stopDistance = 1.7f;       // stops this close (center to center): just inside the player's punch reach
+    // Walking is done by EnemyMovement only (two scripts moving the enemy made it stutter and jump)
 
     [Header("Warning flash (found automatically if left empty)")]
     public SpriteRenderer spriteRenderer;
@@ -33,11 +31,11 @@ public class EnemyAttack : MonoBehaviour
     private float timer;
     private bool windingUp;
     private Color originalColor = Color.white;
-    private Vector3 startPosition;
+    private EnemyBoxer boxer;
 
     void Awake()
     {
-        startPosition = transform.position;
+        boxer = GetComponent<EnemyBoxer>();
 
         if (player == null)
             player = FindFirstObjectByType<PlayerHealth>();
@@ -53,8 +51,7 @@ public class EnemyAttack : MonoBehaviour
     // so every round starts with a fresh punch timer.
     void OnEnable()
     {
-        transform.position = startPosition;   // back to its corner every round
-        timer = timeBetweenPunches;
+        timer = timeBetweenPunches;   // (EnemyMovement puts it back in its corner)
         windingUp = false;
     }
 
@@ -76,14 +73,9 @@ public class EnemyAttack : MonoBehaviour
         if (player == null || player.health <= 0 || windingUp)
             return;
 
-        // Walk up close (left/right only, stays on the floor), even while already in punching range
-        float gap = transform.position.x - player.transform.position.x;
-        if (Mathf.Abs(gap) > stopDistance)
-        {
-            float targetX = player.transform.position.x + Mathf.Sign(gap) * stopDistance;
-            float x = Mathf.MoveTowards(transform.position.x, targetX, walkSpeed * Time.deltaTime);
-            transform.position = new Vector3(x, transform.position.y, transform.position.z);
-        }
+        // Can't punch with the guard up
+        if (boxer != null && boxer.IsGuarding)
+            return;
 
         if (!PlayerInRange())
             return;

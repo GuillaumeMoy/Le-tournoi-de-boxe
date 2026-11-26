@@ -22,6 +22,9 @@ public class EnemyMovement : MonoBehaviour
     [Tooltip("How long the enemy backs off after each punch (seconds)")]
     public float retreatTime = 1f;
 
+    [Tooltip("Chance per second that the enemy suddenly backs off (set per opponent by EnemyBoxer)")]
+    [Range(0f, 1f)] public float randomRetreatChance = 0f;
+
     [Header("Ring limits (measured from where the enemy starts)")]
     public float moveLeft = 6f;
     public float moveRight = 1f;
@@ -93,9 +96,13 @@ public class EnemyMovement : MonoBehaviour
         float distance = Mathf.Abs(playerX - x);
         float towardPlayer = Mathf.Sign(playerX - x);
 
+        // Now and then, step back out of range (makes the enemy harder to pin down)
+        if (retreatTimer <= 0f && distance < fightDistance * 1.3f && Random.value < randomRetreatChance * Time.fixedDeltaTime)
+            retreatTimer = Random.Range(0.5f, 1.1f);
+
         if (retreatTimer > 0f)
         {
-            // Back off after a punch
+            // Back off (after a punch, or the random step back above)
             retreatTimer -= Time.fixedDeltaTime;
             x -= towardPlayer * retreatSpeed * Time.fixedDeltaTime;
         }
